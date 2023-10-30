@@ -24,25 +24,12 @@
 - - (3) Custom validator
 - - (4) CanActivate & Guards
 
-## App display:
-
-  ## Screenshot of initial page before user interaction :
-
--
-## Interaction with app:
-
--
-## Screenshot after interaction :
-
 ## Your task :
 
-- (1) 
-- (2) 
-- (3) 
+- (1) Install and wireup primeng primeicons and primeflex 
+- (2) Modify angular.js to point to the css for primeng
+- (3) Modify te global styles.css to import the primeicons
 
-## Included in the starter branch :
-
-## Data for the PhotoData class :
 
 ### Refrences :
 
