@@ -11,6 +11,28 @@
         name="email"
         placeholder="Enter email"
       />
+
+    <small
+      class="block p-error mt-2"
+      *ngIf="
+        (loginForm.controls['emailCtrl'].invalid &&
+          loginForm.controls['emailCtrl'].dirty) ||
+        loginForm.controls['emailCtrl'].touched
+      "
+    >
+      <!-- 
+        The element will be shown if the loginForm.controls['emailCtrl'].errors?.['required'] expression evaluates to true.
+        The loginForm.controls['emailCtrl'].errors property contains an object that represents the validation errors for the emailCtrl form control. The ['required'] property of this object represents the required validation error.
+
+        If the required validation error is present, the *ngIf directive will evaluate to true and the element will be shown. Otherwise, the *ngIf directive will evaluate to false and the element will not be shown.
+    -->
+      <div *ngIf="loginForm.controls['emailCtrl'].errors?.['required']">
+        Email is required
+      </div>
+      <div *ngIf="loginForm.controls['emailCtrl'].errors?.['email']">
+        Email should be valid
+      </div>
+    </small>
 </div> <!-- For email input-->
 
 
@@ -25,9 +47,22 @@
         name="password"
         placeholder="Enter password"
       />
-     </div> <!-- For password input-->
+      <small
+      class="block p-error mt-2"
+      *ngIf="
+        (loginForm.controls['passwordCtrl'].invalid &&
+          loginForm.controls['passwordCtrl'].dirty) ||
+        loginForm.controls['passwordCtrl'].touched
+      "
+    >
+      <div *ngIf="loginForm.controls['passwordCtrl'].errors?.['required']">
+        Password is required
+      </div>
 
-    <p-button label="LOGIN" styleClass="w-full"></p-button>
+    </small>
+    </div> <!-- For password input-->
+
+    <p-button label="LOGIN" styleClass="w-full" [disabled]="loginForm.invalid"></p-button>
     <div class="mt-2">Not a member? <a routerLink="/register">Register</a></div>
   </p-card>
 </form>
