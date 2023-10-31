@@ -1,1 +1,33 @@
-<p>login works!</p>
+<form action="" [formGroup]="loginForm">
+  <p-card header="Login" [style]="{ width: '360px' }">
+    <div class="field">
+      <label for="email">Email</label>
+
+      <input
+        type="text"
+        pInputText
+        formControlName="emailCtrl"
+        class="w-full"
+        name="email"
+        placeholder="Enter email"
+      />
+</div> <!-- For email input-->
+
+
+    <div class="field">
+      <label for="password">Password</label>
+
+      <input
+        type="text"
+        pInputText
+        formControlName="passwordCtrl"
+        class="w-full"
+        name="password"
+        placeholder="Enter password"
+      />
+     </div> <!-- For password input-->
+
+    <p-button label="LOGIN" styleClass="w-full"></p-button>
+    <div class="mt-2">Not a member? <a routerLink="/register">Register</a></div>
+  </p-card>
+</form>
