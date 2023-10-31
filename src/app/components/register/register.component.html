@@ -1,1 +1,111 @@
-<p>register works!</p>
+<form action="" [formGroup]="registerForm">
+  <p-card header="Login" [style]="{ width: '360px' }">
+    <div class="field">
+      <label for="fullName">Full name</label>
+
+      <input
+        type="text"
+        pInputText
+        formControlName="fullNameCtrl"
+        class="w-full"
+        name="fullName"
+        placeholder="Enter full name"
+      />
+
+      <small
+        class="block p-error mt-2"
+        *ngIf="
+          (getFullName.invalid && getFullName.dirty) || getFullName.touched
+        "
+      >
+        <div *ngIf="getFullName.errors?.['required']">
+          Full name is required
+        </div>
+        <div *ngIf="getFullName.errors?.['pattern']">
+          Full name should be valid
+        </div>
+      </small>
+    </div>
+    <!-- For full name input-->
+    <!-- ================================================================== -->
+    <div class="field">
+      <label for="email">Email</label>
+
+      <input
+        type="text"
+        pInputText
+        formControlName="emailCtrl"
+        class="w-full"
+        name="email"
+        placeholder="Enter email"
+      />
+
+      <small
+        class="block p-error mt-2"
+        *ngIf="(getEmail.invalid && getEmail.dirty) || getEmail.touched"
+      >
+        <div *ngIf="registerForm.controls['emailCtrl'].errors?.['required']">
+          Email is required
+        </div>
+        <div *ngIf="registerForm.controls['emailCtrl'].errors?.['email']">
+          Email should be valid
+        </div>
+      </small>
+    </div>
+    <!-- For email input-->
+    <!-- ================================================================== -->
+
+    <div class="field">
+      <label for="password">Password</label>
+
+      <input
+        type="password"
+        pInputText
+        formControlName="passwordCtrl"
+        class="w-full"
+        name="password"
+        placeholder="Enter password"
+      />
+      <small
+        class="block p-error mt-2"
+        *ngIf="
+          (getPassword.invalid && getPassword.dirty) || getPassword.touched
+        "
+      >
+        <div *ngIf="getPassword.errors?.['required']">Password is required</div>
+      </small>
+    </div>
+    <!-- For password input-->
+    <!-- ================================================================== -->
+
+    <div class="field">
+      <label for="confirmPassword">Confirm Password</label>
+
+      <input
+        type="password"
+        pInputText
+        formControlName="confirmPasswordCtrl"
+        class="w-full"
+        name="confirmPassword"
+        placeholder="Confirm the password"
+      />
+      <small
+        class="block p-error mt-2"
+        *ngIf="
+          (getConfirmPassword.invalid && getConfirmPassword.dirty) || getConfirmPassword.touched
+        "
+      >
+        <div *ngIf="getConfirmPassword.errors?.['required']">Confirm password is required</div>
+      </small>
+    </div>
+    <!-- For password input-->
+    <!-- ================================================================== -->
+
+    <p-button
+      label="LOGIN"
+      styleClass="w-full"
+      [disabled]="registerForm.invalid"
+    ></p-button>
+    <div class="mt-2">Already a member? <a routerLink="/login">Login</a></div>
+  </p-card>
+</form>
