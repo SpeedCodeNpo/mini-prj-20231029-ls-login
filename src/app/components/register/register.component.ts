@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { passwordMatchValidator } from '../../shared/password-match.directive';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,11 @@ export class RegisterComponent {
     emailCtrl: ['', [Validators.required, Validators.email]],
     passwordCtrl: ['', [Validators.required]],
     confirmPasswordCtrl: ['', [Validators.required]],
-  })
+  },
+  {
+    validators: passwordMatchValidator,
+  }
+  )
 
   get getFullName() {
     return this.registerForm.controls['fullNameCtrl'];

@@ -97,8 +97,12 @@
       >
         <div *ngIf="getConfirmPassword.errors?.['required']">Confirm password is required</div>
       </small>
+
+      <!-- Validating if password matches confirmPassword -->
+      <small class="block p-error" 
+      *ngIf="registerForm.errors?.['passwordMismatch'] && getPassword.valid && getConfirmPassword.valid">Password needs to match</small>
     </div>
-    <!-- For password input-->
+    <!-- For confirm password input-->
     <!-- ================================================================== -->
 
     <p-button
