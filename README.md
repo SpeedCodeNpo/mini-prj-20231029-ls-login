@@ -3,10 +3,10 @@
 # Speedcoding Mini Projects
 
 - Project id: mini-prj-20231029-login-ls
-- Chapter id: chp-06-custom-validation
-- Chapter focus: Add custom validation for password and confirm_password
+- Chapter id: chp-07-json-server
+- Chapter focus: Wireup of Json Server
 - Source: YTB: Learn from Scratch (Oct 4, 2023) 
-- In video this chapter starts here : https://youtu.be/P1r2QjuJWcI?t=1864
+- In video this chapter starts here : https://youtu.be/P1r2QjuJWcI?t=2140
 - 3rd Party: 
 -   - Based on PrimeNg design framework (a wrapper over Material Design) :  https://primeng.org/
 -   - Use the global CSS styles copy them from :  https://github.com/haseena-pa/angular-primeng-app-with-auth/blob/main/src/styles.css
@@ -27,9 +27,13 @@
 
 ## Your task :
 
-- (1) In a shared folder create a custom validator 'passwordMatchValidator' that validates password === Confirm Password
-- (2) In register component's registerForm add a validators object
-- (3) In the comp html add the error message element and logic to dispplay when password doesnt match
+- (1) Install json server package
+- (2) Create a new file for db.json
+- (3) Add HttpClientModule in app module and HttpClient in the auth service
+- (4) Create an interface file for users (id, fullname, email , password)
+- (5) Add a registerUser function to add a new user to db
+- (6) In the register comp html wireup the register function to the form
+
 
 ### Refrences :
 
