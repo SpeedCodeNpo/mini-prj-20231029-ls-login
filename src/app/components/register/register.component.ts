@@ -3,15 +3,25 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { passwordMatchValidator } from '../../shared/password-match.directive';
 import { AuthService } from '../../services/auth.service';
 import { UserInterface } from '../../interfaces/auth';
+import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
+  // providers: [MessageService],
 })
 export class RegisterComponent {
   authSvc = inject(AuthService);
-  constructor(private fb: FormBuilder) {}
+  // messageToastSvc = inject(MessageService);
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private messageToastSvc: MessageService,
+  ) {}
+
 
   registerForm = this.fb.group(
     {
@@ -28,6 +38,25 @@ export class RegisterComponent {
     }
   );
 
+
+  showSuccess(){
+    this.messageToastSvc.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Register successful',
+    });
+    this.router.navigate(['login']);
+  }// end showSuccess()
+  
+
+  showError(){
+    this.messageToastSvc.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Error occured',
+    });
+  }//end showError()
+
   submitRegisterDetails() {
     console.log(this.registerForm.value);
     // We use a use a destructuring assignment to get the values of the user properties from the form.
@@ -41,15 +70,21 @@ export class RegisterComponent {
     };
 
     this.authSvc.registerUser(postData).subscribe({
-      next: (value) => {
-        console.log(value);
+      next: () => {
+        this.showSuccess();
+        this.router.navigate(['login']);
       },
       complete: () => {},
-      error: (err) => console.log(err),
+      error: (err) => {
+        this.showError();
+        console.log(err);
+      },
     });
-    console.log(postData);
-  }
 
+    //console.log(postData);
+  } //submitRegisterDetails
+
+  //======================================
   get getFullName() {
     return this.registerForm.controls['fullNameCtrl'];
   }
