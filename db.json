@@ -1,14 +1,9 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "ara",
-      "email": "ara@gg.com"
-    },
-    {
       "id": 2,
-      "fullName": "aaaa",
-      "email": "user1@mail.com",
+      "fullName": "boogy",
+      "email": "ara@gg.com",
       "password": "123"
     },
     {

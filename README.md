@@ -3,11 +3,11 @@
 # Speedcoding Mini Projects
 
 - Project id: mini-prj-20231029-login-ls
-- Chapter id: chp-08-toast-message
-- Chapter focus: Add a toast message for register success
+- Chapter id: chp-09-login-logic
+- Chapter focus: Add logic to manage the login page
 - Secondary target : Redirect to Login page after submit the register details.
 - Source: YTB: Learn from Scratch (Oct 4, 2023) 
-- In video this chapter starts here : https://youtu.be/P1r2QjuJWcI?t=2535
+- In video this chapter starts here : https://youtu.be/P1r2QjuJWcI?t=2777
 - 3rd Party: 
 -   - Based on PrimeNg design framework (a wrapper over Material Design) :  https://primeng.org/
 -   - Use the global CSS styles copy them from :  https://github.com/haseena-pa/angular-primeng-app-with-auth/blob/main/src/styles.css
@@ -28,15 +28,15 @@
 
 ## Your task :
 
-- (1) Import the primeNG toast module
-- (2) In app module import ToastModule and BrowserAnimationsModule
-- (3) In app module add to providers the MessageService from the primeNg api
-- (4) In the app com html add the  <p-toast> element.
-- (5) In the register comp class inject the MessageService in the constructor (Do NOT use the inject() method).
-- (6) In the register comp modify the submitRegisterDetails() method to call the message as follows:
--      (6a) Call showSuccess() method in the case of "next" property of subscribe.
--      (6b) Call showError() method in the case of "error" property of subscribe.
-- (7) In the case of the success then after the message is triggered reroute to the login page.
+- (1) In auth.service add an http get user by email function
+- (2) Modify the login html so that the form triggers ngSubmit 
+- (3) Modify the login ts file by adding a submit-login-user function.
+- (4) In the submit login get the user email value and validate it is the same submited by form
+- (5) In the submit login funtion, once you get the user object , validate that email & password match db
+- (6) In case they match save the email in sessionStorage and redirect to home page
+- (7) Add a message toast in case login failed
+
+
 
 ### Refrences :
 

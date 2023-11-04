@@ -1,6 +1,6 @@
 <!-- <p-toast></p-toast> -->
 
-<form action="" [formGroup]="loginForm">
+<form action="" [formGroup]="loginForm" (ngSubmit)="loginUser()">
   <p-card header="Login" [style]="{ width: '360px' }">
     <div class="field">
       <label for="email">Email</label>
@@ -64,7 +64,7 @@
     </small>
     </div> <!-- For password input-->
 
-    <p-button label="LOGIN" styleClass="w-full" [disabled]="loginForm.invalid"></p-button>
+    <p-button type="submit" label="LOGIN" styleClass="w-full" [disabled]="loginForm.invalid" ></p-button>
     <div class="mt-2">Not a member? <a routerLink="/register">Register</a></div>
   </p-card>
 </form>
