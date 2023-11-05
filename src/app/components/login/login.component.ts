@@ -31,6 +31,7 @@ export class LoginComponent {
         console.log(value);
         if (value.length > 0 && value[0].password === passwordCtrl) {
           this.utilSvc.showSuccess('Login succesful');
+          // We use sessionStorage to indicate to auth.guard that the state is a successful login 
           sessionStorage.setItem('emailStorage', email);
           this.router.navigate(['/home']);
         }
